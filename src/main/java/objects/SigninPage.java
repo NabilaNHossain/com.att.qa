@@ -1,5 +1,6 @@
 package objects;
 
+import org.apache.commons.io.serialization.ValidatingObjectInputStream;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import commonActions.CommonA;
 
 public class SigninPage {
+	
 	public SigninPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -18,9 +20,7 @@ public class SigninPage {
 	WebElement Password;
 	@FindBy(xpath = "//button[@id='signin']")
 	WebElement signInButtonElement;
-	@FindBy(id="fastPayButton")
-	WebElement payWithoutSignInElement;
-	
+	@FindBy(xpath = "//*[@id='rememberMe']")
 	public void inputId(CommonA commonA, String value) {
 		commonA.inputText(UserId, value);
 	}
@@ -32,9 +32,8 @@ public class SigninPage {
 	public void signIn(CommonA commonA) {
 		commonA.click(signInButtonElement);
 	}
-	
-    public String urlName(CommonA commonA ) {
-	 return commonA.getUrl();
-	 }
  
+	public void checkSaveUserIdBox (CommonA commonA, char willSaveUserIdinfo) {
+		CommonA
+	}
 }
